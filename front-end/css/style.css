@@ -1,0 +1,70 @@
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f3e9f0;
+  color: #261623;
+}
+
+li,
+a {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  background-color: #f3e9f0;
+}
+header img {
+  width: 30%;
+}
+header p {
+  width: 60%;
+  margin-left: 30px;
+}
+header nav {
+  display: flex;
+  width: 35%;
+  justify-content: space-around;
+  align-items: center;
+}
+header a {
+  color: #261623;
+}
+header a :visited {
+  color: #261623;
+}
+
+footer {
+  width: 100%;
+  background-color: #232f3e;
+  color: #fff;
+}
+footer #footer {
+  padding: 20px 0px 20px 0px;
+}
+footer .backtotop {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0px 20px 0px;
+  background-color: #485769;
+}
+footer ul {
+  display: flex;
+  justify-content: space-around;
+}
+footer ul li {
+  display: flex;
+  flex-direction: column;
+}
+footer a {
+  list-style-type: none;
+  color: #fff;
+}
+footer a :visited {
+  color: #fff;
+}
+
+/*# sourceMappingURL=style.css.map */
