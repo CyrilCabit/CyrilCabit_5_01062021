@@ -1,0 +1,26 @@
+#card_produit {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+  border: solid #261623;
+  #card_produit-photo {
+    width: 100%;
+    padding: 10px;
+  }
+  #card_produit-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: inherit;
+    #name,
+    #price {
+      font-weight: bold;
+    }
+    #description {
+      text-align: center;
+      font-style: italic;
+    }
+  }
+}

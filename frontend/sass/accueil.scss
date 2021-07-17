@@ -1,0 +1,33 @@
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #261623;
+}
+li,
+a {
+  list-style-type: none;
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#produits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  width: 30%;
+  .card {
+    width: 100%;
+    border: solid#261623;
+    color: #261623;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    .info {
+      padding-left: 10px;
+    }
+  }
+}
