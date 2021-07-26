@@ -13,7 +13,6 @@ a {
 
 img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
@@ -33,6 +32,11 @@ img {
 }
 #produits .card .info {
   padding-left: 10px;
+}
+
+button {
+  background: linear-gradient(to right, #dd9a49, #915cf4);
+  border-radius: 50px;
 }
 
 #card_produit {
@@ -60,6 +64,25 @@ img {
 #card_produit #card_produit-details #description {
   text-align: center;
   font-style: italic;
+}
+
+#card_produit_panier {
+  margin: auto;
+  border: solid;
+  width: 75%;
+}
+#card_produit_panier h1 {
+  margin: auto;
+  text-align: center;
+}
+#card_produit_panier #panier_info {
+  margin: auto;
+  text-align: center;
+}
+#card_produit_panier #panier_info p {
+  margin: 0;
+  padding: 10px;
+  background-color: #f3e9f0;
 }
 
 header {

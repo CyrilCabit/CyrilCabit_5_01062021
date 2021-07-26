@@ -24,3 +24,21 @@
     }
   }
 }
+#card_produit_panier {
+  margin: auto;
+  border: solid;
+  width: 75%;
+  h1 {
+    margin: auto;
+    text-align: center;
+  }
+  #panier_info {
+    margin: auto;
+    text-align: center;
+    p {
+      margin: 0;
+      padding: 10px;
+      background-color: #f3e9f0;
+    }
+  }
+}
