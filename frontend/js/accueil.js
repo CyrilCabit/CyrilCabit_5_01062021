@@ -23,7 +23,7 @@ fetch("http://localhost:3000/api/cameras")
   });
 
 function affichageProduits(produits) {
-  // On récupère le parent ou seront affichés tous les produits
+  // On récupère dans le DOM le parent ou seront affichés tous les produits
   const parentDOM = document.getElementById("produits");
 
   // On fait une boucle sur le tableau de produits
@@ -43,8 +43,3 @@ function affichageProduits(produits) {
     `;
   }
 }
-// <a href="produit.html?id=${produit._id}"></a>
-//const lienProduit = document.querySelector(".link");
-//lienProduit.addEventListener("click", function () {});
-
-//console.log(lienProduit);

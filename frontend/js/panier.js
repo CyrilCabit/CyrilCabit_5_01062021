@@ -1,52 +1,95 @@
 // on recupere les éléments du LocalStorage sous le format Javascript
 let produitDansLocalStorage = JSON.parse(localStorage.getItem("produits"));
-console.log(produitDansLocalStorage);
 
-//on déclare une variable qui va contenir la mise en forme HTML pour un panier vide
-const panierVide = `
-<div id="panier_vide">
-  <h1> Votre Panier</h1>
-  <div id ="panier_details">
-    <p>Le panier est vide</p>
-  </div>
-</div>
-`;
-//variable à insérer dans le DOM sil y a un produit dans le panier
-let panierRempli = `
-<div id="panier_rempli">
-  <h1> Votre Panier</h1>
-  <div id ="panier_details">      
-    <div id ="card_produits_panier">     
-      <div class="info">
-        <div id ="card_produit-photo">
-          <img>  
-        </div> 
-        <p class="name">  </p>
-        <p class="price">  €</p>
+// zone HTML où seront les produits
+const panierDOM = document.getElementById("card_panier");
+const recapPanierDOM = document.getElementById("card_recap");
+const formulaireDOM = document.getElementById("card_formulaire");
+let quantiteProduit = 1;
+affichagePanier(produitDansLocalStorage);
+function affichagePanier(produits) {
+  // ------------ SI PANIER REMPLI--------------
+  if (produitDansLocalStorage !== null) {
+    for (const produit of produits) {
+      let multiply = quantiteProduit * produit.price;
+      panierDOM.innerHTML += `     
+      
+      <div id ="panier_produit">         
+        <div id ="produit_photo"> 
+          <img src=${produit.imageUrl} alt="appareil photo ${produit.name}">
+        </div>
+        <div id="produit_details">
+          <div id="name">${produit.name}</div>           
+          <div id="price">${produit.price} €</div> 
+        </div>
+        <div id="produit_calcul">        
+          <input type ="number" min="1" value= "${quantiteProduit}" id="number"></input>
+          <p>${multiply} €</p>
+        </div>
+        <p id="produit_clear"><i class="far fa-trash-alt"></i></p>     
       </div>
-    </div>
-    <div id ="total_panier">
+      </div>    
+    
+    `;
+    }
+    console.log(quantiteProduit);
+
+    //------------partie RECAP PANIER----------
+
+    recapPanierDOM.innerHTML += `
+
+  <div id ="panier_totaux">
+  <div id ="panier_totaux-articles">
+    <p>Articles (${produits.length})</p> 
+    <p>${produits.price} €</p>
   </div>
-  <button>Valider le panier</button>
-  </div>  
-</div>
-`;
-
-//-----------------------affichage produits du Local Storage dans la page HTML Panier
-
-const produitsDansHTML = document.querySelector("#card_produit_panier");
-//on déclare la variable qui selectionne la zone html ou devront s'afficher les produits
-
-//-----------------si le storage est vide
-
-if (produitDansLocalStorage === null) {
-  console.log("vide!");
-
-  // on place tout le bloc HTML prévu pour un panier vide
-  produitsDansHTML.innerHTML = panierVide;
-
-  //----------------si le storage contient des produits
-} else {
-  produitsDansHTML.innerHTML = panierRempli;
-  console.log("pas vide!");
+  <div id ="panier_totaux-tax">
+    <p>TVA 20%</p> 
+    <p> ${produits.price} €</p>
+  </div>
+  <div id ="panier_grand_total">
+    <p>TOTAL</p>
+    <p>${produits.price} €</p>
+  </div>
+  
+  </div>`;
+    // ------------ SI PANIER VIDE--------------
+  } else {
+    panierDOM.innerHTML += `
+    <div id ="paniervide">
+      <p>Le panier est vide... <i class="far fa-sad-cry"></i></p>
+      <p><a href="index.html">Cliquez ici pour voir notre sélection de produits</a></p>
+    </div>
+    `;
+  }
 }
+//---------------FORMULAIRE---------------
+formulaireDOM.innerHTML += `
+<label for="prenom">
+                Prénom
+                 <input type="text" id="prenom" name="prenom">
+            </label>
+            <label for="nom">
+                Nom
+                 <input type="text" id="nom" name="nom">
+            </label>
+            <label for="email">
+                Email
+                 <input type="email" id="email" name="email">
+            </label>
+            <label for="adress">
+                Adresse de Livraison
+                 <input type="text" class="adress" name="adress">
+            </label>
+            <label for="adress">
+                CP
+                 <input type="number" class="adress" name="cp">
+            </label>
+            <label for="adress">
+                Ville
+                 <input type="text" class="adress" name="ville">
+            </label>
+            <label for="validation">                
+                 <input type="button" id="validation" value="valider la commande"> 
+            </label>
+`;
