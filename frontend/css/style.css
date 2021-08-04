@@ -67,6 +67,7 @@ h2 {
 #card_produit #card_produit-details #name,
 #card_produit #card_produit-details #price {
   font-weight: bold;
+  margin: 10px 10px 10px 10px;
 }
 #card_produit #card_produit-details #description {
   text-align: center;
@@ -122,12 +123,19 @@ h2 {
   width: 45%;
   height: fit-content;
   margin-left: 20px;
+  border: solid 1px;
+  padding: 10px;
 }
 #page_panier #card_recap #panier_totaux-articles,
 #page_panier #card_recap #panier_totaux-tax,
 #page_panier #card_recap #panier_grand_total {
   display: flex;
   justify-content: space-between;
+}
+#page_panier #card_recap #panier_totaux-articles p,
+#page_panier #card_recap #panier_totaux-tax p,
+#page_panier #card_recap #panier_grand_total p {
+  font-weight: bold;
 }
 #page_panier #panier_produit {
   display: flex;

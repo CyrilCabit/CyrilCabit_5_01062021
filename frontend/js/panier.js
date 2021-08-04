@@ -6,12 +6,17 @@ const panierDOM = document.getElementById("card_panier");
 const recapPanierDOM = document.getElementById("card_recap");
 const formulaireDOM = document.getElementById("card_formulaire");
 let quantiteProduit = 1;
+let addition = 0;
+let calculTVA = addition * (20 / 100);
 affichagePanier(produitDansLocalStorage);
 function affichagePanier(produits) {
   // ------------ SI PANIER REMPLI--------------
   if (produitDansLocalStorage !== null) {
     for (const produit of produits) {
       let multiply = quantiteProduit * produit.price;
+
+      addition += produit.price;
+
       panierDOM.innerHTML += `     
       
       <div id ="panier_produit">         
@@ -41,15 +46,15 @@ function affichagePanier(produits) {
   <div id ="panier_totaux">
   <div id ="panier_totaux-articles">
     <p>Articles (${produits.length})</p> 
-    <p>${produits.price} €</p>
+    <p>${addition} €</p>
   </div>
   <div id ="panier_totaux-tax">
     <p>TVA 20%</p> 
-    <p> ${produits.price} €</p>
+    <p> ${addition * (20 / 100)} €</p>
   </div>
   <div id ="panier_grand_total">
     <p>TOTAL</p>
-    <p>${produits.price} €</p>
+    <p>${addition + addition * (20 / 100)}  € </p>
   </div>
   
   </div>`;

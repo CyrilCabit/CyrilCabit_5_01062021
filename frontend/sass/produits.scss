@@ -22,6 +22,7 @@ h2 {
     #name,
     #price {
       font-weight: bold;
+      margin: 10px 10px 10px 10px;
     }
     #description {
       text-align: center;
@@ -82,11 +83,16 @@ h2 {
     width: 45%;
     height: fit-content;
     margin-left: 20px;
+    border: solid 1px;
+    padding: 10px;
     #panier_totaux-articles,
     #panier_totaux-tax,
     #panier_grand_total {
       display: flex;
       justify-content: space-between;
+      p {
+        font-weight: bold;
+      }
     }
   }
   #panier_produit {

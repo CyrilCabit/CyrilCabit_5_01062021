@@ -32,10 +32,15 @@ function affichageProduit(produit, name) {
       <div id="name">${produit.name}</div>
       <div id="description">${produit.description}</div>
       <div id="lenses">${produit.lenses}</div>
-      <div id="price">${produit.price} €</div>
+      <div id="price">${produit.price} €</div>  
+      <select name="option" id="option">
+          <option value="">--Choisissez une option--</option>
+          <option value="silver">argent</option>
+          <option value="anthracite">anthracite</option>
+          <option value="blanc">blanc</option>           
+      </select>      
       <div id="ajout_panier">
-        <p><i class="fas fa-shopping-cart"></i><br>ajouter au panier</p>
-        
+        <p><i class="fas fa-shopping-cart"></i><br>ajouter au panier</p>        
       </div>   
     </div>
 
