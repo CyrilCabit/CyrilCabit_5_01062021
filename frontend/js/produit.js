@@ -14,15 +14,26 @@ fetch(`http://localhost:3000/api/cameras/${url}`)
   })
   .then(function (datacamera) {
     affichageProduit(datacamera);
+
     addListeners(datacamera);
   })
   .catch((error) => {
     console.log(error.message);
   });
+
 //.................................affichage produit..........................................
 function affichageProduit(produit, name) {
   const parentDOM = document.getElementById("card_produit"); // où seront les produits
 
+  //affichage option.........
+
+  let options = "";
+  //je boucle sur les options dispo pour chaque produits
+  produit.lenses.forEach(function (lens) {
+    options = options + `<option value="">${lens}</option>`;
+  });
+
+  console.log(options);
   //bloc html pour chaque produit
   parentDOM.innerHTML = `  
     <div id ="card_produit-photo">
@@ -30,14 +41,10 @@ function affichageProduit(produit, name) {
     </div>
     <div id="card_produit-details">
       <div id="name">${produit.name}</div>
-      <div id="description">${produit.description}</div>
-      <div id="lenses">${produit.lenses}</div>
+      <div id="description">${produit.description}</div>      
       <div id="price">${produit.price} €</div>  
-      <select name="option" id="option">
-          <option value="">--Choisissez une option--</option>
-          <option value="silver">argent</option>
-          <option value="anthracite">anthracite</option>
-          <option value="blanc">blanc</option>           
+      <select name="option" id="option">          
+          <option value="">Choix de lentilles${options}</option>                    
       </select>      
       <div id="ajout_panier">
         <p><i class="fas fa-shopping-cart"></i><br>ajouter au panier</p>        
@@ -47,7 +54,7 @@ function affichageProduit(produit, name) {
   `;
 }
 
-//--------------------------addEventListener(onclick)------------------------------
+//------------------addEventListener(onclick)--------------------
 //au clic sur l'un des produits =>lien vers le produit avec plus de détails
 
 function addListeners(data) {
