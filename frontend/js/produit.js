@@ -78,12 +78,13 @@ function addListeners(data) {
       produitsDansLocalStorage.forEach(function (produit) {
         if (produit.name == data.name) {
           doublon = true;
-          console.log("ATTENTION !!! Produit déjà présent dans le panier");
+          alert("ATTENTION !!! Produit déjà présent dans le panier");
         }
       });
       if (!doublon) {
         console.log(doublon);
         produitsDansLocalStorage.push(data);
+        alert("Produit ajouté au panier")
       }
       localStorage.setItem(
         "produits",
@@ -96,6 +97,7 @@ function addListeners(data) {
       produitsDansLocalStorage = [];
       //On place dans l'Array le produit choisi avec push
       produitsDansLocalStorage.push(data);
+      alert("Produit ajouté au panier")
       //on remet à jour le LS en lui envoyant les données en format JSON
       localStorage.setItem(
         "produits",
