@@ -1,7 +1,7 @@
 // Récupération id url
 const objetUrl = new URL(window.location.href);
 const url = objetUrl.searchParams.get("id"); //va chercher l'Id dans l'url
-console.log(url);
+
 
 //.................................requête...........................................
 fetch(`http://localhost:3000/api/cameras/${url}`)

@@ -149,22 +149,23 @@ h2 {
   width: 100%;
   margin: auto;
   background-color: #f3e9f0;
-
-  label {
-    display: flex;
-    flex-direction: column;
-    font-weight: bold;
-    width: 65%;
-    margin: auto;
-    padding: 10px;
-
+  .form{
+  width: 25%;
+  margin:auto;
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      padding: 20px 10px 0px 10px;
+     
+    }  
     input {
-      width: 100%;
-      margin-top: 10px;
-      min-height: 37px;
-      box-shadow: 0px 5px 10px 0px grey;
-      border: none;
-      font-size: inherit;
+        width: 100%;
+        margin-top: 10px;
+        min-height: 30px;
+        box-shadow: 0px 5px 10px 0px grey;
+        border: none;
+        font-size: inherit;
     }
-  }
+  }  
 }

@@ -2,6 +2,8 @@
 let produitDansLocalStorage = JSON.parse(localStorage.getItem("produits"));
 
 // zones HTML où seront les produits
+const formPanier = document.getElementById("form-panier");
+
 const panierDOM = document.getElementById("card_panier");
 const recapPanierDOM = document.getElementById("card_recap");
 const formulaireDOM = document.getElementById("card_formulaire");
@@ -34,7 +36,7 @@ function affichagePanier(produits) {
     
     `;
     }
-    console.log(quantiteProduit);
+    
 
     //------------partie RECAP PANIER----------
 
@@ -57,39 +59,40 @@ function affichagePanier(produits) {
   
   </div>`;
     //---------------FORMULAIRE---------------
-    formulaireDOM.innerHTML += `
-<label for="prenom">
-                Prénom
-                 <input type="text" id="prenom" name="prenom" required="required">
-            </label>
-            <label for="nom">
-                Nom
-                 <input type="text" id="nom" name="nom" required="required">
-            </label>
-            <label for="email">
-                Email
-                 <input type="email" id="email" name="email" required="required">
-            </label>
-            <label for="adress">
-                Adresse de Livraison
-                 <input type="text" class="adress" name="adress" required="required">
-            </label>
-            <label for="adress">
-                CP
-                 <input type="number" class="adress" name="cp" required="required" minlenght ="6" maxlenght="6">
-            </label>
-            <label for="adress">
-                Ville
-                 <input type="text" class="adress" name="ville" required="required">
-            </label>
-            <label for="validation">                
-                 <input type="button" id="validation" value="valider la commande"> 
-            </label>
+    formPanier.innerHTML += `
+    <form id="card_formulaire">
+    <h2>Informations de facturation</h2>
+    <div class ="form">
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" name="prenom" required>
+    </div>
+    <div class ="form">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" name="nom" required>
+    </div>
+    <div class ="form">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class ="form">
+      <label for="adress">Adresse de Livraison</label>
+      <input type="text" id="adress" class="adress" name="adress" required>
+  </div>
+  <div class ="form">
+      <label for="cp">CP</label>
+      <input type="number" min="01000" max="99999" id="cp" name="cp" required>
+  </div>
+  <div class ="form">
+      <label for="ville">Ville</label>
+      <input type="text" class="adress" name="ville" id="ville" required>
+  </div>
+  <button id ="validation" type="submit">valider la commande</button>
+    </form>
 `;
     // ------------ VIDER COMPLETEMENT LE PANIER--------------
     //suppression de la KEY Produits du Local Storage
     const clearPanier = document.getElementById("clear_panier");
-    console.log(clearPanier);
+    
     clearPanier.addEventListener("click", () => {
       localStorage.removeItem("produits");
       alert("le panier a été vidé");
@@ -118,11 +121,23 @@ function affichagePanier(produits) {
 }
 
 //---------------ENVOI DU FORMULAIRE---------------
-/*fetch("http://localhost:3000/api/cameras", {
-  method: "POST",
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  },
-  //body: JSON.stringify(jsonBody),
-});*/
+function send(e) {
+  e.preventDefault(); 
+
+  fetch("http://localhost:3000/api/cameras/order", {
+    method: "POST",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({form: document.getElementById("value").value}),
+  })
+  .then(function(res) {
+  if (res.ok) {
+    return res.json();
+  }
+})
+document
+  .getElementById("form")
+  .addEventListener("validation", send); 
+}
