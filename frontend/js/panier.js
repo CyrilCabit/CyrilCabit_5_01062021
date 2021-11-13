@@ -54,10 +54,9 @@ function affichagePanier(produits) {
     <div id ="panier_grand_total">
       <p>TOTAL</p>
       <p>${addition + addition * (20 / 100)}  € </p>
-    </div>
-    <button id="clear_panier">Vider le panier</button>
-  
-  </div>`;
+    </div>   
+  </div>
+  <button id="clear_panier">Vider le panier</button>`;
     //---------------FORMULAIRE---------------
     formPanier.innerHTML += `
     <form id="card_formulaire">

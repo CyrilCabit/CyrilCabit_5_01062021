@@ -36,14 +36,30 @@ myForm.addEventListener('submit', function(e){
 //-----------------------------------j'envoie les données au serveur
 
 
-let sendData = fetch("http://localhost:3000/api/cameras/order",{
+fetch("http://localhost:3000/api/cameras/order",{
         method: "POST",
         headers: {
-'Accept': 'application/json', 
-'Content-Type': 'application/json' 
-},
+                        'Accept': 'application/json', 
+                        'Content-Type': 'application/json' 
+        },
 	body: JSON.stringify(donneesCommande),
-});
+})
+.then(async function (res) {
+        if (res.ok) {
+                return res.json();                                              
+        }
+       
+})
+.then (function () {
+        alert(" la commande a bien été envoyée")        
+        window.location.href = "confirmation.html";       
+        
+})
+.catch(function (err) {
+        console.log(err);
+        alert(" la commande n'a pas été envoyée")
+        
+})
        
         
     } 
