@@ -80,8 +80,6 @@ function affichagePanier(produits) {
     <p>Le panier est vide... <i class="far fa-sad-cry"></i></p>
     <p><a href="index.html">Cliquez ici pour voir notre sélection de produits</a></p>
     `;
-    //---------------FORMULAIRE---------------
-    formulaireDOM.innerHTML += `
-    `;
+   
   }
 }
