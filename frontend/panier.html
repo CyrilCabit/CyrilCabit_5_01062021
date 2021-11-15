@@ -26,7 +26,35 @@
                 <div id="card_recap"></div>
                 
             </div>
-            <div id="form-panier">                
+            <div id="form-panier">
+                <form id="card_formulaire">
+                    <h2>Informations de facturation</h2>
+                    <div class ="form">
+                      <label for="prenom">Prénom</label>
+                      <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    <div class ="form">
+                      <label for="nom">Nom</label>
+                      <input type="text" id="nom" name="nom" required>
+                    </div>
+                    <div class ="form">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class ="form">
+                      <label for="adress">Adresse de Livraison</label>
+                      <input type="text" id="adress" class="adress" name="adress" required>
+                  </div>
+                  <div class ="form">
+                      <label for="cp">CP</label>
+                      <input type="number" min="01000" max="99999" id="cp" name="cp" required>
+                  </div>
+                  <div class ="form">
+                      <label for="ville">Ville</label>
+                      <input type="text" class="adress" name="ville" id="ville" required>
+                  </div>
+                  <button id ="validation" type="submit">valider la commande</button>
+                    </form>                
             </div>          
         </main>
         <footer>

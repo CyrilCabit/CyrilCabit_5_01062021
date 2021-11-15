@@ -7,7 +7,6 @@ myForm.addEventListener('submit', function(e){
     
     e.preventDefault();    
     myForm.reportValidity(); 
-    myForm.checkValidity(); 
     console.log(myForm);
     if (myForm.reportValidity()) {
 // -------------------------------------Je crée mon objet contact        
@@ -66,7 +65,6 @@ fetch("http://localhost:3000/api/cameras/order",{
     }, false)
  
     
-// let btnValidation =  document.getElementById('validation'); 
 
 
 

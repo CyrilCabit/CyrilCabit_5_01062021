@@ -1,6 +1,8 @@
-// Récupération id url
+// Récupération id dans l'url
 const objetUrl = new URL(window.location.href);
+console.log(objetUrl);
 const url = objetUrl.searchParams.get("id"); //va chercher l'Id dans l'url
+console.log(url);
 
 
 //.................................requête...........................................
@@ -14,7 +16,6 @@ fetch(`http://localhost:3000/api/cameras/${url}`)
   })
   .then(function (datacamera) {
     affichageProduit(datacamera);
-
     addListeners(datacamera);
   })
   .catch((error) => {
@@ -22,7 +23,7 @@ fetch(`http://localhost:3000/api/cameras/${url}`)
   });
 
 //.................................affichage produit..........................................
-function affichageProduit(produit, name) {
+function affichageProduit(produit) {
   const parentDOM = document.getElementById("card_produit"); // où seront les produits
 
   //affichage option.........
@@ -63,6 +64,8 @@ function addListeners(data) {
 
   // On écoute l'evènement "au clic" sur le bouton d'ajout
   boutonAjoutPanier.addEventListener("click", () => {
+
+    
     //-----------------------------------LOCAL STORAGE------------------------------------
 
     // On déclare une variable qui détaillera les produits présents dans le LS

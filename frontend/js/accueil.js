@@ -27,7 +27,7 @@ function affichageProduits(produits) {
   const parentDOM = document.getElementById("produits");
 
   // On fait une boucle sur le tableau de produits
-  // const produit vaut un produit dans le tableau lors de l'itération
+ 
   for (const produit of produits) {
     // On ajoute au DOM chaque nouveau produit
     parentDOM.innerHTML += `
